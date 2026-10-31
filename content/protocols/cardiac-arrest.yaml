@@ -1,0 +1,72 @@
+id: cardiac-arrest-cols
+title: "Cardiac arrest: compression-only CPR (COLS)"
+summary: "For an adult who has collapsed and does not respond. Compressions only; no rescue breaths."
+language: en
+steps:
+  - id: check-scene-safe
+    kind: check
+    text: "Make sure the place is safe for you and the person. If there is danger, ask people nearby to help move them, and start as soon as you can."
+    source_refs:
+      - { source_id: S2, locator: "p.84" }
+  - id: check-response
+    kind: check
+    text: "Tap the shoulder from the front and ask loudly: 'Hello, are you alright?'"
+    source_refs:
+      - { source_id: S2, locator: "p.85-86" }
+  - id: if-responsive
+    kind: action
+    condition: "If they answer or move on purpose"
+    text: "Cardiac arrest is unlikely. Stay with them and get them to a medical facility."
+    source_refs:
+      - { source_id: S2, locator: "p.86" }
+  - id: call-for-help
+    kind: action
+    condition: "If there is no response"
+    text: "Shout for help and call the emergency number. If you are alone, make the call yourself."
+    source_refs:
+      - { source_id: S2, locator: "p.85-86" }
+  - id: start-compressions
+    kind: action
+    condition: "If there is no response"
+    text: "Lay them on their back on a firm, flat surface and start chest compressions straight away."
+    source_refs:
+      - { source_id: S2, locator: "p.86" }
+  - id: hand-position
+    kind: action
+    text: "Place the heel of your hand on the centre of the chest, two fingers above the lower end of the breastbone. Keep elbows straight, fingers interlocked."
+    source_refs:
+      - { source_id: S2, locator: "p.87-88" }
+  - id: rate-and-depth
+    kind: action
+    text: "Push at about 120 per minute, at least 5 cm but not more than 6 cm deep. Let the chest rise fully each time. Do not lean on it. Keep interruptions minimal."
+    source_refs:
+      - { source_id: S2, locator: "p.87" }
+  - id: count-cycles
+    kind: action
+    text: "Count aloud from 1 to 30. Do 5 cycles of 30."
+    source_refs:
+      - { source_id: S2, locator: "p.85, p.88" }
+  - id: recheck
+    kind: check
+    text: "After 5 cycles, look for movement, coughing or sounds. If there is none, start compressions again."
+    source_refs:
+      - { source_id: S2, locator: "p.85, p.88" }
+  - id: swap-rescuers
+    kind: action
+    condition: "If more than one rescuer"
+    text: "Swap after every 5 cycles."
+    source_refs:
+      - { source_id: S2, locator: "p.88" }
+  - id: keep-going
+    kind: action
+    text: "Continue until medical help arrives, you hand over to a medical facility, or the person starts moving, coughing or making sounds."
+    source_refs:
+      - { source_id: S2, locator: "p.88" }
+review:
+  status: draft
+  version: "0.1.0"
+  open_questions:
+    - "Compare hand position and rate (120/min) against AHA 2025 and ERC 2025."
+    - "COLS gives no AED step for lay rescuers; confirm intended behaviour."
+    - "Cross-check every step against the primary paper (S1) and add S1 locators."
+    - "Confirm swap interval (5 cycles in COLS) against other guidelines."

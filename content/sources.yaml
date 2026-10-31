@@ -1,0 +1,24 @@
+sources:
+  - id: S1
+    title: "Compression-only life support (COLS) for cardiopulmonary resuscitation by layperson outside the hospital"
+    publisher: "Indian Journal of Anaesthesia, 2017; 61(11): 867-873 (Resuscitation Council formed by the Indian Society of Anaesthesiologists)"
+    role: primary
+    year: 2017
+    url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC5702999/"
+    accessed: 2026-10-29
+  - id: S2
+    title: "CBSE Healthcare sector workbook, first aid and COLS chapter"
+    publisher: "Central Board of Secondary Education"
+    role: secondary
+    year: null
+    year_note: "Year not printed on pages 83-94; check cover or CBSE website"
+    url: null
+    accessed: 2026-10-24
+  - id: S3
+    title: "Emergency Response Support System (ERSS), single emergency number 112"
+    publisher: "Ministry of Home Affairs, Government of India"
+    role: secondary
+    year: null
+    year_note: "Web page with no publication year shown; accessed date recorded"
+    url: "https://www.mha.gov.in/emergency-response-support-system-erss"
+    accessed: 2026-10-29
