@@ -1,0 +1,10 @@
+numbers:
+  - number: "112"
+    label: "National single emergency number (all emergencies)"
+    source_id: S3
+  - number: "108"
+    label: "Ambulance service (named in COLS flowchart)"
+    source_id: S2
+  - number: "102"
+    label: "National ambulance service number (named in CBSE workbook)"
+    source_id: S2
