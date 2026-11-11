@@ -22,7 +22,8 @@ emergencies, and connectivity is unreliable in many places in India.
 
 ## Safety requirements
 - Every step traces to a published source.
-- "Call 112" is always the first instruction and cannot be overridden by content.
+- An emergency-call banner (numbers from verified config) is always shown above
+every protocol; protocol content cannot remove or reorder it.
 - Content carries a review record; a clinician reviews before release.
 
 ## Success criteria
