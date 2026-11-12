@@ -15,6 +15,9 @@ dependencies = [
 dhadkan = "dhadkan.cli:app"
 
 [dependency-groups]
+data = [
+    "pdfplumber>=0.11.10",
+]
 dev = [
     "pytest>=8",
     "pytest-cov>=5",
@@ -46,3 +49,5 @@ files = ["src"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "--cov=dhadkan --cov-report=term-missing"
+[tool.uv]
+default-groups = ["dev", "data"]
