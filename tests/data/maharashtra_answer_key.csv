@@ -1,0 +1,13 @@
+survey,state,indicator_no,topic,sex,category,urban,rural,total
+NFHS-6,Maharashtra,78,blood_sugar,women,high,7.4,6.7,7.0
+NFHS-6,Maharashtra,79,blood_sugar,women,very_high,9.9,6.5,7.8
+NFHS-6,Maharashtra,80,blood_sugar,women,high_or_medicated,19.3,14.1,16.0
+NFHS-6,Maharashtra,81,blood_sugar,men,high,8.2,7.5,7.8
+NFHS-6,Maharashtra,82,blood_sugar,men,very_high,10.5,7.8,8.8
+NFHS-6,Maharashtra,83,blood_sugar,men,high_or_medicated,20.4,16.4,17.7
+NFHS-6,Maharashtra,84,blood_pressure,women,mildly_elevated,12.8,13.5,13.2
+NFHS-6,Maharashtra,85,blood_pressure,women,moderately_or_severely_elevated,5.4,6.1,5.8
+NFHS-6,Maharashtra,86,blood_pressure,women,elevated_or_medicated,26.0,24.2,24.9
+NFHS-6,Maharashtra,87,blood_pressure,men,mildly_elevated,17.8,16.6,17.0
+NFHS-6,Maharashtra,88,blood_pressure,men,moderately_or_severely_elevated,4.3,3.6,3.9
+NFHS-6,Maharashtra,89,blood_pressure,men,elevated_or_medicated,30.0,26.5,27.7
