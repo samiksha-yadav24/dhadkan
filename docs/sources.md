@@ -53,6 +53,19 @@ protocol is marked clinician_reviewed.
 - Used for: cross-check of S1 and S4
 - TO VERIFY: open and record the exact values.
 
+## S6: Indian Diabetes Risk Score (PRIMARY for risk module)
+- Authors: Mohan V, Deepa R, Deepa M, Somannavar S, Datta M
+- Title: A simplified Indian Diabetes Risk Score for screening for
+  undiagnosed diabetic subjects
+- Publisher: Journal of the Association of Physicians of India,
+  2005 Sep; 53: 759-763 (Madras Diabetes Research Foundation)
+- URL: https://pubmed.ncbi.nlm.nih.gov/16334618/
+- Accessed: 2026-11-12
+- Used for: Table 1 (points), cutoff of 60, performance figures
+- Locators: abstract p.759; Table 1 p.760; Tables 2 and 3 p.761; limits p.762
+- Limits: Chennai study; cross-sectional; screens undiagnosed DIABETES only;
+  later studies add low/moderate/high tiers that are NOT in this paper.
+
 ## Still needed (not yet found)
 - Heart attack: a bystander-appropriate source for warning signs and first
   response, including what it says about aspirin (AHA heart attack pages, or

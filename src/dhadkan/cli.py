@@ -17,6 +17,7 @@ from dhadkan.engine.guidance import (
 )
 from dhadkan.loader import Content, ContentError, load_content
 from dhadkan.models import Protocol
+from dhadkan.risk.idrs import FamilyHistory, IdrsInput, Sex, calculate, summary
 
 app = typer.Typer(help="Dhadkan content tools.", no_args_is_help=True)
 
@@ -87,6 +88,42 @@ def build(
     content = _load(content_dir)
     write_bundle(content, out)
     typer.echo(f"Wrote {out}")
+
+
+@app.command()
+def risk(
+    age: Annotated[int, typer.Option(help="Age in years (18-110).")],
+    sex: Annotated[Sex, typer.Option(help="female or male (sets waist cutoffs).")],
+    waist: Annotated[float, typer.Option(help="Waist circumference in cm.")],
+    exercise: Annotated[bool, typer.Option(help="Exercise regularly.")] = False,
+    demanding_work: Annotated[
+        bool, typer.Option(help="Physically demanding work.")
+    ] = False,
+    family: Annotated[
+        FamilyHistory,
+        typer.Option(help="Parents with diabetes: none, one_parent, both_parents."),
+    ] = FamilyHistory.NONE,
+) -> None:
+    """Calculate the Indian Diabetes Risk Score (a screening aid, not a diagnosis)."""
+    try:
+        result = calculate(
+            IdrsInput(
+                age_years=age,
+                sex=sex,
+                waist_cm=waist,
+                regular_exercise=exercise,
+                demanding_work=demanding_work,
+                family_history=family,
+            )
+        )
+    except ValueError as exc:
+        typer.echo(f"Input problem: {exc}", err=True)
+        raise typer.Exit(code=1) from exc
+    typer.echo(
+        f"Age {result.age} + waist {result.waist} + activity {result.activity} "
+        f"+ family {result.family} = {result.total}"
+    )
+    typer.echo(summary(result))
 
 
 if __name__ == "__main__":

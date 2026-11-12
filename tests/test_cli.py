@@ -46,3 +46,19 @@ def test_build_writes_bundle(content_dir: Path, tmp_path: Path) -> None:
     )
     assert result.exit_code == 0
     assert out.exists()
+
+
+def test_risk_command_scores_table_3_example() -> None:
+    args = ["risk", "--age", "60", "--sex", "male", "--waist", "101"]
+    args += ["--exercise", "--family", "both_parents"]
+    result = runner.invoke(app, args)
+    assert result.exit_code == 0
+    assert "= 90" in result.output
+    assert "not a diagnosis" in result.output
+
+
+def test_risk_command_rejects_bad_age() -> None:
+    result = runner.invoke(
+        app, ["risk", "--age", "5", "--sex", "female", "--waist", "75"]
+    )
+    assert result.exit_code == 1
