@@ -22,3 +22,10 @@ sources:
     year_note: "Web page with no publication year shown; accessed date recorded"
     url: "https://www.mha.gov.in/emergency-response-support-system-erss"
     accessed: 2026-10-29
+  - id: S6
+    title: "A simplified Indian Diabetes Risk Score for screening for undiagnosed diabetic subjects"
+    publisher: "Journal of the Association of Physicians of India, 2005 Sep; 53: 759-763 (Mohan V, Deepa R, Deepa M, Somannavar S, Datta M; Madras Diabetes Research Foundation)"
+    role: primary
+    year: 2005
+    url: "https://pubmed.ncbi.nlm.nih.gov/16334618/"
+    accessed: 2026-11-12
