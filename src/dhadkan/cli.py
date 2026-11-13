@@ -8,6 +8,7 @@ import typer
 import yaml
 from pydantic import ValidationError
 
+from dhadkan.analytics.nfhs import ExtractionError, build_dataset
 from dhadkan.engine.bundle import write_bundle
 from dhadkan.engine.guidance import (
     banner_line,
@@ -124,6 +125,20 @@ def risk(
         f"+ family {result.family} = {result.total}"
     )
     typer.echo(summary(result))
+
+
+@app.command("nfhs-extract")
+def nfhs_extract(
+    pdf: Annotated[Path, typer.Argument(help="Path to the NFHS-6 fact sheet PDF.")],
+    out: OutFile = Path("data/processed/nfhs6_indicators.csv"),
+) -> None:
+    """Extract blood sugar and blood pressure rows from the NFHS-6 PDF."""
+    try:
+        rows = build_dataset(pdf, out)
+    except (ExtractionError, FileNotFoundError) as exc:
+        typer.echo(f"Extraction failed: {exc}", err=True)
+        raise typer.Exit(code=1) from exc
+    typer.echo(f"Wrote {len(rows)} rows to {out}")
 
 
 if __name__ == "__main__":

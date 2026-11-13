@@ -80,3 +80,8 @@ def test_each_state_is_checked_separately() -> None:
     problems = validate_rows(good_rows() + goa)
     assert problems
     assert all(p.startswith("Goa") for p in problems)
+
+
+def test_nfhs5_value_out_of_range_is_caught() -> None:
+    problems = validate_rows(change(good_rows(), 78, nfhs5_total=120.0))
+    assert any("nfhs5_total" in p for p in problems)
