@@ -47,9 +47,20 @@ class IndicatorRow:
     urban: float
     rural: float
     total: float
+    nfhs5_total: float | None = None
+    source_page: int | None = None
+    caution: str = ""
 
     def value(self, area: str) -> float:
         return {"urban": self.urban, "rural": self.rural, "total": self.total}[area]
+
+
+def _optional_float(text: str | None) -> float | None:
+    return float(text) if text else None
+
+
+def _optional_int(text: str | None) -> int | None:
+    return int(text) if text else None
 
 
 def read_rows(path: Path) -> list[IndicatorRow]:
@@ -65,6 +76,9 @@ def read_rows(path: Path) -> list[IndicatorRow]:
                 urban=float(r["urban"]),
                 rural=float(r["rural"]),
                 total=float(r["total"]),
+                nfhs5_total=_optional_float(r.get("nfhs5_total")),
+                source_page=_optional_int(r.get("source_page")),
+                caution=r.get("caution") or "",
             )
             for r in csv.DictReader(f)
         ]
@@ -87,6 +101,10 @@ def check_state(state: str, rows: list[IndicatorRow]) -> list[str]:
             value = row.value(area)
             if not 0.0 <= value <= 100.0:
                 problems.append(f"{state}: indicator {n} {area} {value} not in 0-100")
+        if row.nfhs5_total is not None and not 0.0 <= row.nfhs5_total <= 100.0:
+            problems.append(
+                f"{state}: indicator {n} nfhs5_total {row.nfhs5_total} not in 0-100"
+            )
         low, high = sorted((row.urban, row.rural))
         if not low - TOLERANCE <= row.total <= high + TOLERANCE:
             problems.append(
