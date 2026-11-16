@@ -16,6 +16,8 @@ dhadkan = "dhadkan.cli:app"
 
 [dependency-groups]
 data = [
+    "matplotlib>=3.11.2",
+    "pandas>=3.1.1",
     "pdfplumber>=0.11.10",
 ]
 dev = [
@@ -52,5 +54,5 @@ addopts = "--cov=dhadkan --cov-report=term-missing"
 [tool.uv]
 default-groups = ["dev", "data"]
 [[tool.mypy.overrides]]
-module = ["pdfplumber", "pdfplumber.*"]
+module = ["pdfplumber", "pdfplumber.*", "pandas", "pandas.*", "matplotlib", "matplotlib.*"]
 ignore_missing_imports = true
